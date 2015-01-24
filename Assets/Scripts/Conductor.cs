@@ -18,8 +18,9 @@ public class Conductor : MonoBehaviour {
 	List<GameObject> tbn;
 
 	void Awake(){
+		Conductor.instance = gameObject;
 		tbn = new List<GameObject> ();
-	}
+	}	
 
 	void Start () {		
 		beatselapsed = 0;
@@ -27,6 +28,7 @@ public class Conductor : MonoBehaviour {
 		audio.Play ();
 		start = (float)(AudioSettings.dspTime) - offset ;
 		lastbeat = start;
+		levelMaster = gameObject;
 		lms = levelMaster.GetComponent<LevelMaster> ();
 	}
 	
@@ -45,7 +47,7 @@ public class Conductor : MonoBehaviour {
 
 	//Checking if we are in the window of receiving input
 	void CanInput(KeyValuePair<GameObject,string> caller){
-		float cbt = lms.CurrentBeat * crochet;
+		float cbt = lms.CurrentBeat.Start * crochet;
 		float ct = songposition - start;
 		if (cbt - delta > ct && cbt + delta < ct){
 			caller.Key.SendMessage (caller.Value);
@@ -53,7 +55,7 @@ public class Conductor : MonoBehaviour {
 	}
 
 	void KeyPressed(string key){
-		levelMaster.KeyPressed (key);
+		lms.KeyPressed (key);
 	}
 
 	void Register(GameObject tbr){
