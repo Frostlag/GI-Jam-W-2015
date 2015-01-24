@@ -34,6 +34,7 @@ public class LevelMaster : MonoBehaviour {
 		GameObject floor = Instantiate (Floor) as GameObject;
 		floor.transform.position = new Vector3 (0, 0);
 		floor.transform.localScale = new Vector3 (speed * totalBeats, 2, 2);
+		int last = 1;
 		foreach (string line in lines){
 			Beat newBeat = new Beat();
 			string[] row = line.Split(" "[0]);
@@ -45,7 +46,19 @@ public class LevelMaster : MonoBehaviour {
 			GameObject trap = Instantiate (Trap) as GameObject;
 			trap.transform.position = new Vector3(speed * newBeat.Start, 0); // start is a # of beats, beats * speed = distance
 			trap.transform.localScale = new Vector3 (2, 50, 50);
+			while (last < newBeat.Start){
+				Beat sneakBeat = new Beat();
+				sneakBeat.Start = last;
+				sneakBeat.Type = "sneak";
+				sneakBeat.Pass = false;
+				GameObject sneaktrap = Instantiate (Trap) as GameObject;
+				sneaktrap.transform.position = new Vector3(speed * sneakBeat.Start, 0); // start is a # of beats, beats * speed = distance
+				sneaktrap.transform.localScale = new Vector3 (2, 50, 50);
+				BeatQueue.Enqueue(sneakBeat);
+				last ++;
+			}
 			BeatQueue.Enqueue(newBeat);
+			last++;
 		}
 		PopNextBeat();
 		return true;
@@ -62,7 +75,6 @@ public class LevelMaster : MonoBehaviour {
 
 	// Pops first of beatqueue and sets it to CurrentBeat
 	public void PopNextBeat() {
-
 		if (CurrentBeat == null){
 			CurrentBeat = (Beat) BeatQueue.Dequeue();
 		}else{
