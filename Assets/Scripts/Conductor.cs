@@ -36,7 +36,7 @@ public class Conductor : MonoBehaviour {
 	void Update () {
 		songposition = (float)(AudioSettings.dspTime) ;
 
-		beatMaster.CheckCurrentBeat (songposition - start);
+		//beatMaster.CheckCurrentBeat (songposition - start);
 
 		if (songposition > lastbeat + crochet){
 			lastbeat += crochet;
@@ -51,6 +51,7 @@ public class Conductor : MonoBehaviour {
 		if ((songposition > lastbeat - delta && songposition < lastbeat + delta)
 			|| (songposition > lastbeat + crochet - delta && songposition < lastbeat + crochet + delta)) {
 			caller.Key.SendMessage (caller.Value);
+
 		} 
 	}
 
