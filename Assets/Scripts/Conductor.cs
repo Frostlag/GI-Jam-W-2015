@@ -34,7 +34,7 @@ public class Conductor : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		songposition = (float)(AudioSettings.dspTime);
+		songposition = (float)(AudioSettings.dspTime) - offset;
 
 		if (songposition > lastbeat + crochet){
 			lastbeat += crochet;
@@ -44,14 +44,12 @@ public class Conductor : MonoBehaviour {
 			}
 		}
 		if (songposition - start > lms.CurrentBeat.Start*crochet + delta) {
-
 			lms.PopNextBeat();
 		}
 	}
 
 	//Checking if we are in the window of receiving input
 	void CanInput(KeyValuePair<GameObject,string> caller){
-
 		float cbt = lms.CurrentBeat.Start * crochet;
 		float ct = songposition - start;
 		if (cbt - delta < ct && cbt + delta > ct){
@@ -65,5 +63,9 @@ public class Conductor : MonoBehaviour {
 
 	void Register(GameObject tbr){
 		tbn.Add(tbr);
+	}
+
+	void Test(){
+		print (songposition - lastbeat);
 	}
 }
