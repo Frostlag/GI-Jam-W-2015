@@ -12,12 +12,12 @@ public class Conductor : MonoBehaviour {
 	public float start;
 	public float delta;
 	public float offset;
+	public GameObject levelMaster;
+	private LevelMaster lms;
 
-	public LevelMaster beatMaster;
 	List<GameObject> tbn;
 
 	void Awake(){
-		Conductor.instance = gameObject;
 		tbn = new List<GameObject> ();
 	}
 
@@ -27,13 +27,12 @@ public class Conductor : MonoBehaviour {
 		audio.Play ();
 		start = (float)(AudioSettings.dspTime) - offset ;
 		lastbeat = start;
+		lms = levelMaster.GetComponent<LevelMaster> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		songposition = (float)(AudioSettings.dspTime) ;
-
-		//beatMaster.CheckCurrentBeat (songposition - start);
+		songposition = (float)(AudioSettings.dspTime);
 
 		if (songposition > lastbeat + crochet){
 			lastbeat += crochet;
@@ -44,15 +43,20 @@ public class Conductor : MonoBehaviour {
 		}		
 	}
 
+	//Checking if we are in the window of receiving input
 	void CanInput(KeyValuePair<GameObject,string> caller){
-		if ((songposition > lastbeat - delta && songposition < lastbeat + delta)
-			|| (songposition > lastbeat + crochet - delta && songposition < lastbeat + crochet + delta)) {
+		float cbt = lms.CurrentBeat * crochet;
+		float ct = songposition - start;
+		if (cbt - delta > ct && cbt + delta < ct){
 			caller.Key.SendMessage (caller.Value);
-
 		} 
+	}
+
+	void KeyPressed(string key){
+		levelMaster.KeyPressed (key);
 	}
 
 	void Register(GameObject tbr){
 		tbn.Add(tbr);
-	}	
+	}
 }

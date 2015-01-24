@@ -23,6 +23,7 @@ public class Player : MonoBehaviour {
 			Vector3 newpos = this.transform.position;
 			newpos.x += 1;
 			this.transform.position = newpos;
+			Conductor.instance.SendMessage ("KeyPressed", "space");
 		}
 	}
 
