@@ -1,1 +1,12 @@
+0 sneak
+0.5 sneak
+1 sneak
+1.5 sneak
+2 sneak
+2.5 sneak
+3 sneak
+3.5 sneak
+4 sneak
+4.5 sneak
+5 sneak	
 500 sneak
