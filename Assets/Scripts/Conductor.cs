@@ -42,7 +42,11 @@ public class Conductor : MonoBehaviour {
 			for (int i = 0; i < tbn.Count; i++){
 				tbn[i].SendMessage("Beat");
 			}
-		}		
+		}
+		if (songposition - start > lms.CurrentBeat.Start*crochet + delta) {
+
+			lms.PopNextBeat();
+		}
 	}
 
 	//Checking if we are in the window of receiving input
