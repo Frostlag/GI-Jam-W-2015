@@ -11,6 +11,7 @@ public class LevelMaster : MonoBehaviour {
 	public Queue BeatQueue; 
 
 	void Start(){
+		InitializeQueue (Application.dataPath + "Levels/level1.txt");
 	}
 
 	void Update(){
@@ -41,16 +42,20 @@ public class LevelMaster : MonoBehaviour {
 
 	public void KeyPressed(string key){
 		CurrentBeat.Pass = true;
+
+		if (CurrentBeat.Pass) {
+			PopNextBeat();
+		}
 	}
 
 	// Pops first of beatqueue and sets it to CurrentBeat
 	public void PopNextBeat() {
 		if (CurrentBeat == null){
-			CurrentBeat = BeatQueue.Dequeue();
+			CurrentBeat = (Beat) BeatQueue.Dequeue();
 			NextBeat = (Beat) BeatQueue.Dequeue();
 		}else{
 			CurrentBeat = NextBeat;
-			NextBeat = BeatQueue.Dequeue();
+			NextBeat = (Beat) BeatQueue.Dequeue();
 		}
 	}
 }
