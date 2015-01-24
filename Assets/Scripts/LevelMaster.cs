@@ -6,7 +6,6 @@ public class LevelMaster : MonoBehaviour {
 	// Properties
 	// current beat being referenced 
 	public Beat CurrentBeat;
-	public Beat NextBeat;
 	public GameObject Floor = Resources.Load ("Floor") as GameObject;
 	public GameObject Trap = Resources.Load ("Trap") as GameObject;
 	public int speed = 1;
@@ -63,13 +62,12 @@ public class LevelMaster : MonoBehaviour {
 
 	// Pops first of beatqueue and sets it to CurrentBeat
 	public void PopNextBeat() {
-		print ("Popped");
+
 		if (CurrentBeat == null){
 			CurrentBeat = (Beat) BeatQueue.Dequeue();
-			NextBeat = (Beat) BeatQueue.Dequeue();
 		}else{
-			CurrentBeat = NextBeat;
-			NextBeat = (Beat) BeatQueue.Dequeue();
+			print (CurrentBeat.Pass);
+			CurrentBeat = (Beat) BeatQueue.Dequeue();
 		}
 	}
 }
