@@ -9,13 +9,14 @@ public class LevelMaster : MonoBehaviour {
 	public Beat NextBeat;
 	public GameObject Floor = Resources.Load ("Floor") as GameObject;
 	public GameObject Trap = Resources.Load ("Trap") as GameObject;
-	public int speed = 50;
-	public int totalBeats = 5000;
+	public int speed = 1;
+	public int totalBeats = 500;
 
 	// Queue of beats to be poped onto Current Beat
 	public Queue BeatQueue; 
 
 	void Start(){
+		print ("Started");
 		InitializeQueue (Application.dataPath + "/Levels/level1.txt");
 	}
 
@@ -43,7 +44,7 @@ public class LevelMaster : MonoBehaviour {
 			newBeat.Type = row[1];
 			newBeat.Pass = false;
 			GameObject trap = Instantiate (Trap) as GameObject;
-			trap.transform.position = new Vector3(50 * newBeat.Start, 0); // start is a # of beats, beats * speed = distance
+			trap.transform.position = new Vector3(speed * newBeat.Start, 0); // start is a # of beats, beats * speed = distance
 			trap.transform.localScale = new Vector3 (2, 50, 50);
 			BeatQueue.Enqueue(newBeat);
 		}
@@ -58,9 +59,11 @@ public class LevelMaster : MonoBehaviour {
 			PopNextBeat();
 		}
 	}
+	
 
 	// Pops first of beatqueue and sets it to CurrentBeat
 	public void PopNextBeat() {
+		print ("Popped");
 		if (CurrentBeat == null){
 			CurrentBeat = (Beat) BeatQueue.Dequeue();
 			NextBeat = (Beat) BeatQueue.Dequeue();

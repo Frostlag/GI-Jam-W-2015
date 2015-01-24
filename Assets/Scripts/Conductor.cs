@@ -47,15 +47,16 @@ public class Conductor : MonoBehaviour {
 
 	//Checking if we are in the window of receiving input
 	void CanInput(KeyValuePair<GameObject,string> caller){
+
 		float cbt = lms.CurrentBeat.Start * crochet;
 		float ct = songposition - start;
-		if (cbt - delta > ct && cbt + delta < ct){
+		if (cbt - delta < ct && cbt + delta > ct){
 			caller.Key.SendMessage (caller.Value);
-		} 
+		}
 	}
 
 	void KeyPressed(string key){
-		lms.KeyPressed (key);
+
 	}
 
 	void Register(GameObject tbr){
