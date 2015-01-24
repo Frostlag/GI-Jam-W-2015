@@ -66,6 +66,10 @@ public class LevelMaster : MonoBehaviour {
 		if (CurrentBeat == null){
 			CurrentBeat = (Beat) BeatQueue.Dequeue();
 		}else{
+			if (!CurrentBeat.Pass){
+				print ("fail");
+				Player.instance.SendMessage("Kick");
+			}
 			print (CurrentBeat.Pass);
 			CurrentBeat = (Beat) BeatQueue.Dequeue();
 		}
