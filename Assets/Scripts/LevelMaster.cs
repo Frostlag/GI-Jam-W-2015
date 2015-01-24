@@ -7,11 +7,16 @@ public class LevelMaster : MonoBehaviour {
 	// current beat being referenced 
 	public Beat CurrentBeat;
 	public Beat NextBeat;
+	public GameObject Floor = Resources.Load ("Floor") as GameObject;
+	public GameObject Trap = Resources.Load ("Trap") as GameObject;
+	public int speed = 50;
+	public int totalBeats = 5000;
+
 	// Queue of beats to be poped onto Current Beat
 	public Queue BeatQueue; 
 
 	void Start(){
-		InitializeQueue (Application.dataPath + "Levels/level1.txt");
+		InitializeQueue (Application.dataPath + "/Levels/level1.txt");
 	}
 
 	void Update(){
@@ -26,6 +31,9 @@ public class LevelMaster : MonoBehaviour {
 		// open file, read all lines and loop through them
 		BeatQueue = new Queue();
 		string[] lines = System.IO.File.ReadAllLines (@fileName);
+		GameObject floor = Instantiate (Floor) as GameObject;
+		floor.transform.position = new Vector3 (0, 0);
+		floor.transform.localScale = new Vector3 (speed * totalBeats, 2, 2);
 		foreach (string line in lines){
 			Beat newBeat = new Beat();
 			string[] row = line.Split(" "[0]);
@@ -34,6 +42,9 @@ public class LevelMaster : MonoBehaviour {
 			newBeat.Start = int.Parse (row[0]);
 			newBeat.Type = row[1];
 			newBeat.Pass = false;
+			GameObject trap = Instantiate (Trap) as GameObject;
+			trap.transform.position = new Vector3(50 * newBeat.Start, 0); // start is a # of beats, beats * speed = distance
+			trap.transform.localScale = new Vector3 (2, 50, 50);
 			BeatQueue.Enqueue(newBeat);
 		}
 		PopNextBeat();
