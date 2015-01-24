@@ -36,22 +36,28 @@ public class BeatMaster{
 
 	// checks if the CurrentBeat is done and then sets it to a newer beat 
 	public void CheckCurrentBeat(float time){
-		if (CurrentBeat.Pass == 0) {
+		if (CurrentBeat.Pass == false) {
 			if (CurrentBeat.Start + CurrentBeat.Length > time) {
 				// beat expires because the input time has passed
 				PopNextBeat();
 			}
 		} 
-		else {
+		else { // this should not happen at all, but just in case 
 			// beat was passed successfully and passed
 			PopNextBeat();
 		}
 	} 
 
+	public void PushInput(string playerInput){
+		if (playerInput == CurrentBeat.Key) {
+			CurrentBeat.Pass = true;
+		}
+	}
+
 	// Pops first of beatqueue and sets it to CurrentBeat
 	private void PopNextBeat(bool pass) {
-		if (pass == 0) {
-			// something about failing
+		if (pass == false) {
+			// something bad happens with Beat.Damage;
 		}
 		CurrentBeat = BeatQueue.Dequeue();
 	}
@@ -62,6 +68,7 @@ public class BeatMaster{
 public class Beat {
 	public int Start;
 	public int Length;
-	public bool Pass = 0;
+	public bool Pass = false;
 	public int Damage;
+	public string Key;
 }
