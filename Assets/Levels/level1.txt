@@ -1,22 +1,12 @@
-30 10 left
-40 10 right
-50 10 left
-60 10 right
-70 10 left
-80 10 right
-90 10 left
-100 10 right
-110 10 left
-120 10 right
-130 10 left
-140 10 right
-150 10 left
-160 10 right
-170 10 left
-180 10 right
-190 10 left
-200 10 right
-210 10 left
-220 10 right
-230 10 left
-240 10 right
+1 sneak
+2 sneak
+3 sneak
+4 sneak
+5 sneak
+6 sneak
+7 sneak
+8 sneak
+9 sneak
+10 sneak
+11 sneak
+12 sneak

@@ -1,16 +1,20 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections;
-using UnityEngine;
 	
-public class BeatMaster{
+public class LevelMaster : MonoBehaviour {
 	// Properties
 	// current beat being referenced 
-	private Beat CurrentBeat;
+	public Beat CurrentBeat;
+	public Beat NextBeat;
 	// Queue of beats to be poped onto Current Beat
-	private Queue BeatQueue; 
+	public Queue BeatQueue; 
 
-	//Methods
+	void Start(){
+	}
+
+	void Update(){
+	}
 
 	// InitalizeQueue(string) -> bool
 	// Takes in a fileName and reads through all lines and creates new beat objects out of them
@@ -27,46 +31,32 @@ public class BeatMaster{
 			// determine format of the file
 			// start duration damage
 			newBeat.Start = int.Parse (row[0]);
-			newBeat.Length = int.Parse (row[1]);
-			newBeat.Damage = int.Parse (row[2]);
+			newBeat.Type = row[1];
+			newBeat.Pass = false;
 			BeatQueue.Enqueue(newBeat);
 		}
+		PopNextBeat();
 		return true;
 	}
 
-	// checks if the CurrentBeat is done and then sets it to a newer beat 
-	public void CheckCurrentBeat(float time){
-		if (CurrentBeat.Pass == false) {
-			if (CurrentBeat.Start + CurrentBeat.Length > time) {
-				// beat expires because the input time has passed
-				PopNextBeat(true);
-			}
-		} 
-		else { // this should not happen at all, but just in case 
-			// beat was passed successfully and passed
-			PopNextBeat(true);
-		}
-	} 
-
-	public void PushInput(string playerInput){
-		if (playerInput == CurrentBeat.Key) {
-			CurrentBeat.Pass = true;
-		}
+	public void KeyPressed(string key){
+		CurrentBeat.Pass = true;
 	}
 
 	// Pops first of beatqueue and sets it to CurrentBeat
-	private void PopNextBeat(bool pass) {
-		if (pass == false) {
-			// something about failing
+	public void PopNextBeat() {
+		if (CurrentBeat == null){
+			CurrentBeat = BeatQueue.Dequeue();
+			NextBeat = (Beat) BeatQueue.Dequeue();
+		}else{
+			CurrentBeat = NextBeat;
+			NextBeat = BeatQueue.Dequeue();
 		}
-		CurrentBeat = (Beat) BeatQueue.Dequeue();
 	}
 }
 
 public class Beat {
 	public int Start;
-	public int Length;
-	public bool Pass = false;
-	public int Damage;
-	public string Key;
+	public string Type;
+	public bool Pass;
 }
