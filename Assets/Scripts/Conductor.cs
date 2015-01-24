@@ -13,8 +13,7 @@ public class Conductor : MonoBehaviour {
 	public float delta;
 	public float offset;
 
-	private BeatMaster beatMaster;
-
+	public LevelMaster beatMaster;
 	List<GameObject> tbn;
 
 	void Awake(){
@@ -28,8 +27,6 @@ public class Conductor : MonoBehaviour {
 		audio.Play ();
 		start = (float)(AudioSettings.dspTime) - offset ;
 		lastbeat = start;
-
-		beatMaster = new BeatMaster();
 	}
 	
 	// Update is called once per frame
