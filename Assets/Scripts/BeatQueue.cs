@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections;
-using System.Collections.Generic.Queue;
+using UnityEngine;
 	
 public class BeatMaster{
 	// Properties
@@ -23,12 +23,12 @@ public class BeatMaster{
 		string[] lines = System.IO.File.ReadAllLines (@fileName);
 		foreach (string line in lines){
 			Beat newBeat = new Beat();
-			string[] row = line.Split(" ");
+			string[] row = line.Split(" "[0]);
 			// determine format of the file
 			// start duration damage
-			newBeat.Start = row[0];
-			newBeat.Length = row[1];
-			newBeat.Damage = row[2];
+			newBeat.Start = int.Parse (row[0]);
+			newBeat.Length = int.Parse (row[1]);
+			newBeat.Damage = int.Parse (row[2]);
 			BeatQueue.Enqueue(newBeat);
 		}
 		return true;
@@ -39,12 +39,12 @@ public class BeatMaster{
 		if (CurrentBeat.Pass == false) {
 			if (CurrentBeat.Start + CurrentBeat.Length > time) {
 				// beat expires because the input time has passed
-				PopNextBeat();
+				PopNextBeat(true);
 			}
 		} 
 		else { // this should not happen at all, but just in case 
 			// beat was passed successfully and passed
-			PopNextBeat();
+			PopNextBeat(true);
 		}
 	} 
 
@@ -57,9 +57,9 @@ public class BeatMaster{
 	// Pops first of beatqueue and sets it to CurrentBeat
 	private void PopNextBeat(bool pass) {
 		if (pass == false) {
-			// something bad happens with Beat.Damage;
+			// something about failing
 		}
-		CurrentBeat = BeatQueue.Dequeue();
+		CurrentBeat = (Beat) BeatQueue.Dequeue();
 	}
 
 
