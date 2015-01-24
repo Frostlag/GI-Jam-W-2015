@@ -61,8 +61,6 @@ public class BeatMaster{
 		}
 		CurrentBeat = (Beat) BeatQueue.Dequeue();
 	}
-
-
 }
 
 public class Beat {
