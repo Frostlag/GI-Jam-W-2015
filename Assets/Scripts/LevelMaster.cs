@@ -14,6 +14,8 @@ public class LevelMaster : MonoBehaviour {
 	// Queue of beats to be poped onto Current Beat
 	public Queue BeatQueue; 
 
+	// trap types
+
 	void Start(){
 		print ("Started");
 		InitializeQueue (Application.dataPath + "/Levels/level1.txt");
@@ -34,19 +36,11 @@ public class LevelMaster : MonoBehaviour {
 		GameObject floor = Instantiate (Floor) as GameObject;
 		floor.transform.position = new Vector3 (0, 0);
 		floor.transform.localScale = new Vector3 (speed * totalBeats, 2, 2);
-		int last = 1;
+		float last = 1;
 		foreach (string line in lines){
-			Beat newBeat = new Beat();
 			string[] row = line.Split(" "[0]);
-			// determine format of the file
-			// start duration damage
-			newBeat.Start = int.Parse (row[0]);
-			newBeat.Type = row[1];
-			newBeat.Pass = false;
-			GameObject trap = Instantiate (Trap) as GameObject;
-			trap.transform.position = new Vector3(speed * newBeat.Start, 0); // start is a # of beats, beats * speed = distance
-			trap.transform.localScale = new Vector3 (2, 50, 50);
-			while (last < newBeat.Start){
+
+			while (last < float.Parse (row[0])){
 				Beat sneakBeat = new Beat();
 				sneakBeat.Start = last;
 				sneakBeat.Type = "sneak";
@@ -55,13 +49,29 @@ public class LevelMaster : MonoBehaviour {
 				sneaktrap.transform.position = new Vector3(speed * sneakBeat.Start, 0); // start is a # of beats, beats * speed = distance
 				sneaktrap.transform.localScale = new Vector3 (2, 50, 50);
 				BeatQueue.Enqueue(sneakBeat);
-				last ++;
+				last+=1;
 			}
-			BeatQueue.Enqueue(newBeat);
-			last++;
+			if (row[1] == "type1") {
+				last += PlaceTrap (new float[6] {0.25f, 0.25f, 0.25f, 0.25f, 0.25f, 0.25f}, 2, float.Parse (row[0]));
+			}
 		}
 		PopNextBeat();
 		return true;
+	}
+	private int PlaceTrap(float[] BeatList, int length,float start){
+		float startOffset = 0;
+		foreach (float i in BeatList) {
+			Beat newBeat = new Beat();
+			startOffset += i;
+			newBeat.Start = start * speed + startOffset * speed;
+			newBeat.Type = "sneak";
+			newBeat.Pass = false;
+			GameObject sneaktrap = Instantiate (Trap) as GameObject;
+			sneaktrap.transform.position = new Vector3(start * speed + startOffset * speed, 0);
+			sneaktrap.transform.localScale = new Vector3(2, 50, 50);
+			BeatQueue.Enqueue (newBeat);
+		}
+		return length;
 	}
 
 	public void KeyPressed(string key){
@@ -89,7 +99,11 @@ public class LevelMaster : MonoBehaviour {
 }
 
 public class Beat {
-	public int Start;
+	public float Start;
 	public string Type;
 	public bool Pass;
+}
+public class BeatTrap {
+	public float[] BeatList;
+	public int TrapLength;
 }
