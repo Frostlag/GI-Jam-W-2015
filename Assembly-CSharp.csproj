@@ -47,7 +47,9 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Conductor.cs" />
+     <Compile Include="Assets\Scripts\LevelMaster.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
+     <None Include="Assets\Levels\level1.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
  </Reference>
