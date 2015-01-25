@@ -17,7 +17,6 @@ public class LevelMaster : MonoBehaviour {
 	// trap types
 
 	void Start(){
-		print ("Started");
 		InitializeQueue (Application.dataPath + "/Levels/level1.txt");
 	}
 
@@ -37,35 +36,44 @@ public class LevelMaster : MonoBehaviour {
 		floor.transform.position = new Vector3 (0, 0);
 		floor.transform.localScale = new Vector3 (speed * totalBeats, 2, 2);
 		float last = 1;
+		int id = 0;
 		foreach (string line in lines){
 			string[] row = line.Split(" "[0]);
-
+			id++;
 			while (last < float.Parse (row[0])){
 				Beat sneakBeat = new Beat();
 				sneakBeat.Start = last;
 				sneakBeat.Type = "sneak";
 				sneakBeat.Pass = false;
+				sneakBeat.id = id;
+
+				sneakBeat.Duration = 1;
 				GameObject sneaktrap = Instantiate (Trap) as GameObject;
 				sneaktrap.transform.position = new Vector3(speed * sneakBeat.Start, 0); // start is a # of beats, beats * speed = distance
 				sneaktrap.transform.localScale = new Vector3 (2, 50, 50);
 				BeatQueue.Enqueue(sneakBeat);
 				last+=1;
+				id++;
 			}
 			if (row[1] == "type1") {
-				last += PlaceTrap (new float[6] {0.25f, 0.25f, 0.25f, 0.25f, 0.25f, 0.25f}, 2, float.Parse (row[0]));
+				last += PlaceTrap (new float[6] {0.25f, 0.25f, 0.25f, 0.25f, 0.25f, 0.25f}, 2, float.Parse (row[0]),id);
 			}
 		}
 		PopNextBeat();
 		return true;
 	}
-	private int PlaceTrap(float[] BeatList, int length,float start){
+	private int PlaceTrap(float[] BeatList, int length,float start, int id){
 		float startOffset = 0;
+		float duration = length;
 		foreach (float i in BeatList) {
 			Beat newBeat = new Beat();
 			startOffset += i;
 			newBeat.Start = start * speed + startOffset * speed;
 			newBeat.Type = "sneak";
 			newBeat.Pass = false;
+			newBeat.Duration = duration;
+			newBeat.id = id;
+			duration -= i;
 			GameObject sneaktrap = Instantiate (Trap) as GameObject;
 			sneaktrap.transform.position = new Vector3(start * speed + startOffset * speed, 0);
 			sneaktrap.transform.localScale = new Vector3(2, 50, 50);
@@ -88,20 +96,30 @@ public class LevelMaster : MonoBehaviour {
 		if (CurrentBeat == null){
 			CurrentBeat = (Beat) BeatQueue.Dequeue();
 		}else{
+			int id = CurrentBeat.id;
 			if (!CurrentBeat.Pass){
 				print ("fail");
-				Player.instance.SendMessage("Kick");
+				Player.instance.SendMessage("Move",CurrentBeat.Duration);
+				while (CurrentBeat.id == id){
+					CurrentBeat = (Beat) BeatQueue.Dequeue();
+				}
 			}
-			print (CurrentBeat.Pass);
-			CurrentBeat = (Beat) BeatQueue.Dequeue();
+			else{
+				float laststart = CurrentBeat.Start;
+
+				CurrentBeat = (Beat) BeatQueue.Dequeue();
+				Player.instance.SendMessage("Move",CurrentBeat.Start - laststart);
+			}
 		}
 	}
 }
 
 public class Beat {
+	public int id;
 	public float Start;
 	public string Type;
 	public bool Pass;
+	public float Duration;
 }
 public class BeatTrap {
 	public float[] BeatList;
