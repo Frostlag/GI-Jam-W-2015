@@ -23,7 +23,8 @@ public class LevelMaster : MonoBehaviour {
 
 	void Update(){
 		if (lives == 0) {
-			Conductor.instance.SendMessage("DIE");
+			//Conductor.instance.SendMessage("DIE");
+
 		}
 	}
 
