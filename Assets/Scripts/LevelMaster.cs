@@ -17,7 +17,7 @@ public class LevelMaster : MonoBehaviour {
 	// trap types
 
 	void Start(){
-		InitializeQueue (Application.dataPath + "/Levels/level1.txt");
+		InitializeQueue (Application.dataPath + "/Levels/pup.txt");
 	}
 
 	void Update(){
@@ -117,11 +117,11 @@ public class LevelMaster : MonoBehaviour {
 	public void PopNextBeat() {
 		if (CurrentBeat == null){
 			CurrentBeat = (Beat) BeatQueue.Dequeue();
-			print (CurrentBeat.Start);
 		}else{
 			int id = CurrentBeat.id;
 			if (!CurrentBeat.Pass){
-				print (CurrentBeat.Duration);
+				//print (CurrentBeat.Duration);
+				print ("Fail");	
 				Player.instance.SendMessage("Move",CurrentBeat.Duration);
 				while (CurrentBeat.id == id){
 					CurrentBeat = (Beat) BeatQueue.Dequeue();
@@ -136,6 +136,9 @@ public class LevelMaster : MonoBehaviour {
 			}
 		}
 	}
+
+	private int PlaceTrapCaller( string traptype){
+		}
 }
 
 public class Beat {
