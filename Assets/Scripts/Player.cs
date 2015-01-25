@@ -42,10 +42,14 @@ public class Player : MonoBehaviour {
 	}
 
 	void Move(float distance){
+		Vector3 temp = this.transform.position;
+		temp.x += distance;
+		this.transform.position = temp;
+		/*
 		targetx += distance*distancemod;
 		Vector3 temp = this.rigidbody2D.velocity;
 		temp.x = distance * speed;
-		this.rigidbody2D.velocity = temp;
+		this.rigidbody2D.velocity = temp;*/
 	}
 
 	void Beat(){
