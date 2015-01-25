@@ -1,22 +1,11 @@
 fileFormatVersion: 2
-guid: 51a71508e59864b4fadb58deededca9c
+guid: c5ff6b45933d09049b0d456beabfd4f0
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: Fall animation Sprite Sheet_0
-    21300002: Fall animation Sprite Sheet_1
-    21300004: Fall animation Sprite Sheet_2
-    21300006: Fall animation Sprite Sheet_3
-    21300008: Fall animation Sprite Sheet_4
-    21300010: Fall animation Sprite Sheet_5
-    21300012: Fall animation Sprite Sheet_6
-    21300014: Fall animation Sprite Sheet_7
-    21300016: Fall animation Sprite Sheet_8
-    21300018: Fall animation Sprite Sheet_9
-    21300020: Fall animation Sprite Sheet_10
+  fileIDToRecycleName: {}
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -35,14 +24,14 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 1024
   textureSettings:
-    filterMode: 0
-    aniso: 16
+    filterMode: -1
+    aniso: -1
     mipBias: -1
-    wrapMode: 1
+    wrapMode: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -53,116 +42,6 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites:
-    - name: Fall animation Sprite Sheet_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 640
-        width: 128
-        height: 64
-      alignment: 6
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Fall animation Sprite Sheet_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 576
-        width: 128
-        height: 64
-      alignment: 6
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Fall animation Sprite Sheet_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 512
-        width: 128
-        height: 64
-      alignment: 6
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Fall animation Sprite Sheet_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 448
-        width: 128
-        height: 64
-      alignment: 6
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Fall animation Sprite Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 384
-        width: 128
-        height: 64
-      alignment: 6
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Fall animation Sprite Sheet_5
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 320
-        width: 128
-        height: 64
-      alignment: 6
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Fall animation Sprite Sheet_6
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 256
-        width: 128
-        height: 64
-      alignment: 6
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Fall animation Sprite Sheet_7
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 192
-        width: 128
-        height: 64
-      alignment: 6
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Fall animation Sprite Sheet_8
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 128
-        width: 128
-        height: 64
-      alignment: 6
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Fall animation Sprite Sheet_9
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 64
-        width: 128
-        height: 64
-      alignment: 6
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Fall animation Sprite Sheet_10
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 128
-        height: 64
-      alignment: 6
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+    sprites: []
   spritePackingTag: 
   userData: 
