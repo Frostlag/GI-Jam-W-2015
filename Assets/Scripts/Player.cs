@@ -21,11 +21,6 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (this.transform.position.x > targetx) {
-			Vector3 temp = this.rigidbody2D.velocity;
-			temp.x = 0;
-			this.rigidbody2D.velocity = temp;
-		}
 		if (Input.GetKeyDown ("t")) {
 			Conductor.instance.SendMessage ("Test", "space");
 		}
@@ -62,7 +57,7 @@ public class Player : MonoBehaviour {
 	}
 
 	public void setSpeed(float ratio){
-		gameObject.GetComponent<Animator> ().speed = runSpeed / ratio;
+		gameObject.GetComponent<Animator> ().speed = speed / ratio;
 	}
 	
 	void Beat(){
