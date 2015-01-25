@@ -1,9 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\LevelMaster.cs">
     <Files>
-      <File FileName="Assets\Scripts\LevelMaster.cs" Line="11" Column="48" />
-      <File FileName="Assets\Scripts\Conductor.cs" Line="77" Column="17" />
+      <File FileName="Assets\Scripts\LevelMaster.cs" Line="117" Column="42" />
+      <File FileName="Assets\Scripts\Conductor.cs" Line="77" Column="3" />
       <File FileName="Assets\Scripts\Player.cs" Line="64" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
