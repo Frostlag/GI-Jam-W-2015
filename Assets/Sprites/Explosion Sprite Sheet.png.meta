@@ -1,0 +1,432 @@
+fileFormatVersion: 2
+guid: b8d49b750dc87424b8a20f7958f00255
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Explosion Sprite Sheet_0
+    21300002: Explosion Sprite Sheet_1
+    21300004: Explosion Sprite Sheet_2
+    21300006: Explosion Sprite Sheet_3
+    21300008: Explosion Sprite Sheet_4
+    21300010: Explosion Sprite Sheet_5
+    21300012: Explosion Sprite Sheet_6
+    21300014: Explosion Sprite Sheet_7
+    21300016: Explosion Sprite Sheet_8
+    21300018: Explosion Sprite Sheet_9
+    21300020: Explosion Sprite Sheet_10
+    21300022: Explosion Sprite Sheet_11
+    21300024: Explosion Sprite Sheet_12
+    21300026: Explosion Sprite Sheet_13
+    21300028: Explosion Sprite Sheet_14
+    21300030: Explosion Sprite Sheet_15
+    21300032: Explosion Sprite Sheet_16
+    21300034: Explosion Sprite Sheet_17
+    21300036: Explosion Sprite Sheet_18
+    21300038: Explosion Sprite Sheet_19
+    21300040: Explosion Sprite Sheet_20
+    21300042: Explosion Sprite Sheet_21
+    21300044: Explosion Sprite Sheet_22
+    21300046: Explosion Sprite Sheet_23
+    21300048: Explosion Sprite Sheet_24
+    21300050: Explosion Sprite Sheet_25
+    21300052: Explosion Sprite Sheet_26
+    21300054: Explosion Sprite Sheet_27
+    21300056: Explosion Sprite Sheet_28
+    21300058: Explosion Sprite Sheet_29
+    21300060: Explosion Sprite Sheet_30
+    21300062: Explosion Sprite Sheet_31
+    21300064: Explosion Sprite Sheet_32
+    21300066: Explosion Sprite Sheet_33
+    21300068: Explosion Sprite Sheet_34
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Explosion Sprite Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 804
+        width: 232
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Explosion Sprite Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 804
+        width: 232
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Explosion Sprite Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 804
+        width: 232
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Explosion Sprite Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 804
+        width: 232
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Explosion Sprite Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 804
+        width: 232
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Explosion Sprite Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 1160
+        y: 804
+        width: 232
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Explosion Sprite Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 1392
+        y: 804
+        width: 232
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Explosion Sprite Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 603
+        width: 232
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Explosion Sprite Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 603
+        width: 232
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Explosion Sprite Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 603
+        width: 232
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Explosion Sprite Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 603
+        width: 232
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Explosion Sprite Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 603
+        width: 232
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Explosion Sprite Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 1160
+        y: 603
+        width: 232
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Explosion Sprite Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 1392
+        y: 603
+        width: 232
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Explosion Sprite Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 402
+        width: 232
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Explosion Sprite Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 402
+        width: 232
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Explosion Sprite Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 402
+        width: 232
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Explosion Sprite Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 402
+        width: 232
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Explosion Sprite Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 402
+        width: 232
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Explosion Sprite Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 1160
+        y: 402
+        width: 232
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Explosion Sprite Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 1392
+        y: 402
+        width: 232
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Explosion Sprite Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 201
+        width: 232
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Explosion Sprite Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 201
+        width: 232
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Explosion Sprite Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 201
+        width: 232
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Explosion Sprite Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 201
+        width: 232
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Explosion Sprite Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 201
+        width: 232
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Explosion Sprite Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 1160
+        y: 201
+        width: 232
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Explosion Sprite Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 1392
+        y: 201
+        width: 232
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Explosion Sprite Sheet_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 232
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Explosion Sprite Sheet_29
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 0
+        width: 232
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Explosion Sprite Sheet_30
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 0
+        width: 232
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Explosion Sprite Sheet_31
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 0
+        width: 232
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Explosion Sprite Sheet_32
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 0
+        width: 232
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Explosion Sprite Sheet_33
+      rect:
+        serializedVersion: 2
+        x: 1160
+        y: 0
+        width: 232
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Explosion Sprite Sheet_34
+      rect:
+        serializedVersion: 2
+        x: 1392
+        y: 0
+        width: 232
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
