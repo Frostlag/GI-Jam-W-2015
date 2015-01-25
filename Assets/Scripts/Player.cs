@@ -8,6 +8,7 @@ public class Player : MonoBehaviour {
 	private float targetx;
 	public float speed;
 	public float distancemod;
+	public bool slide;
 
 	void Awake(){
 		Player.instance = gameObject;
@@ -44,14 +45,17 @@ public class Player : MonoBehaviour {
 	}
 
 	void Move(float distance){
-		Vector3 temp = this.transform.position;
-		temp.x += distance;
-		this.transform.position = temp;
-		/*
-		targetx += distance*distancemod;
-		Vector3 temp = this.rigidbody2D.velocity;
-		temp.x = distance * speed;
-		this.rigidbody2D.velocity = temp;*/
+		if (!slide) {
+			Vector3 temp = this.transform.position;
+			temp.x += distance;
+			this.transform.position = temp;
+		}
+		else{
+			targetx += distance*distancemod;
+			Vector3 temp = this.rigidbody2D.velocity;
+			temp.x = distance * speed;
+			this.rigidbody2D.velocity = temp;
+		}
 	}
 
 	void Beat(){
