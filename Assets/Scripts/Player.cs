@@ -28,7 +28,9 @@ public class Player : MonoBehaviour {
 		if (Input.GetKeyDown ("t")) {
 			Conductor.instance.SendMessage ("Test", "space");
 		}
-		
+		if (Input.GetKeyDown ("s")) {
+			Conductor.instance.SendMessage ("Special", "space");
+		}
 		// See if we are in window to input
 		KeyValuePair<GameObject,string> parameter = new KeyValuePair<GameObject,string> (gameObject, "handleControls");
 		Conductor.instance.SendMessage ("CanInput", parameter);
