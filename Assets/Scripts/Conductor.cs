@@ -70,6 +70,6 @@ public class Conductor : MonoBehaviour {
 	}
 
 	void Special(){
-				print (beatselapsed);
-		}
+		print (beatselapsed);
+	}
 }

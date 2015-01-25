@@ -17,7 +17,7 @@ public class LevelMaster : MonoBehaviour {
 	// trap types
 
 	void Start(){
-		InitializeQueue (Application.dataPath + "/Levels/level1.txt");
+		InitializeQueue (Application.dataPath + "/Levels/pup.txt");
 	}
 
 	void Update(){
@@ -39,14 +39,12 @@ public class LevelMaster : MonoBehaviour {
 		int id = 0;
 		foreach (string line in lines){
 			string[] row = line.Split(" "[0]);
-			id++;
 			while (last < float.Parse (row[0])){
 				Beat sneakBeat = new Beat();
 				sneakBeat.Start = last;
 				sneakBeat.Type = "sneak";
 				sneakBeat.Pass = false;
 				sneakBeat.id = id;
-
 				sneakBeat.Duration = 1;
 				GameObject sneaktrap = Instantiate (Trap) as GameObject;
 				sneaktrap.transform.position = new Vector3(speed * sneakBeat.Start, 0); // start is a # of beats, beats * speed = distance
@@ -106,15 +104,16 @@ public class LevelMaster : MonoBehaviour {
 			if (!CurrentBeat.Pass){
 				//print (CurrentBeat.Duration);
 				print ("Fail");	
+				Player.instance.GetComponent<Animator>().SetBool ("Pass", false);
+				Player.instance.GetComponent<Player>().setSpeed(0.5f);
 				Player.instance.SendMessage("Move",CurrentBeat.Duration);
 				while (CurrentBeat.id == id){
 					CurrentBeat = (Beat) BeatQueue.Dequeue();
 				}
-
 			}
 			else{
 				float laststart = CurrentBeat.Start;
-
+				Player.instance.GetComponent<Animator>().SetBool ("Pass", true);
 				CurrentBeat = (Beat) BeatQueue.Dequeue();
 				Player.instance.SendMessage("Move",CurrentBeat.Start - laststart);
 			}
@@ -124,7 +123,7 @@ public class LevelMaster : MonoBehaviour {
 	private int PlaceTrapCaller( string traptype , float beat, int id){
 		int last = 0;
 
-		if (traptype == "trap1") {
+		if (traptype == "trap1" || traptype == "double") {
 			last = PlaceTrap (new float[2] {0.0f, 0.5f}, 1, beat,id);
 		}
 		if (traptype == "trap2") {
@@ -145,14 +144,14 @@ public class LevelMaster : MonoBehaviour {
 		if (traptype == "trap7") {
 			last = PlaceTrap (new float[2] {0.0f, 1f/3f }, 1, beat,id);
 		}
-		if (traptype == "trap8") {
+		if (traptype == "trap8" | traptype == "restquick") {
 			last = PlaceTrap (new float[2] {0.0f, 0.75f}, 1, beat,id);
 		}
 		if (traptype == "trap9") {
 			last = PlaceTrap (new float[2] {0.0f, 0.25f}, 1, beat,id);
 		}
-		if (traptype == "double") {
-			last = PlaceTrap (new float[2] {0.0f, 0.5f}, 1, beat,id);
+		if (traptype == "rest") {
+			last = PlaceTrap (new float[2] {0.0f, 2.0f}, 2, beat,id);
 		}
 		return last;
 	}
