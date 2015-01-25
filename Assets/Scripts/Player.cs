@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
+using System.IO;
 
 public class Player : MonoBehaviour {
 
@@ -27,7 +29,11 @@ public class Player : MonoBehaviour {
 			this.rigidbody2D.velocity = temp;
 		}
 		if (Input.GetKeyDown ("t")) {
-			Conductor.instance.SendMessage ("Test", "space");
+			using (StreamWriter w = File.AppendText("log.txt"))
+			{
+				w.WriteLine( Convert.ToString ((Conductor.instance.GetComponent<Conductor>().songposition-Conductor.instance.GetComponent<Conductor>().start) / Conductor.instance.GetComponent<Conductor>().crochet - 1) + " trap1", w);
+			}
+
 		}
 		if (Input.GetKeyDown ("s")) {
 			Conductor.instance.SendMessage ("Special", "space");
@@ -35,7 +41,6 @@ public class Player : MonoBehaviour {
 		// See if we are in window to input
 		KeyValuePair<GameObject,string> parameter = new KeyValuePair<GameObject,string> (gameObject, "handleControls");
 		Conductor.instance.SendMessage ("CanInput", parameter);
-
 	}
 
 	void handleControls(){

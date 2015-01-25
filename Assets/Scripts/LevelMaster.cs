@@ -10,14 +10,19 @@ public class LevelMaster : MonoBehaviour {
 	public GameObject Trap = Resources.Load ("Trap") as GameObject;
 	public float speed ;
 	public int totalBeats = 500;
-
+	public bool gen = false;
 	// Queue of beats to be poped onto Current Beat
 	public Queue BeatQueue; 
 
 	// trap types
 
 	void Start(){
-		InitializeQueue (Application.dataPath + "/Levels/level1.txt");
+		if (gen) {
+			StartRecording();
+		} 
+		else {
+			InitializeQueue (Application.dataPath + "/Levels/level3.txt");
+		}
 	}
 
 	void Update(){
@@ -155,6 +160,10 @@ public class LevelMaster : MonoBehaviour {
 			last = PlaceTrap (new float[2] {0.0f, 0.5f}, 1, beat,id);
 		}
 		return last;
+	}
+
+	void StartRecording() {
+	
 	}
 }
 

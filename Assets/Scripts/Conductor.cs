@@ -14,7 +14,7 @@ public class Conductor : MonoBehaviour {
 	public float offset;
 	public GameObject levelMaster;
 	private LevelMaster lms;
-
+	public bool gen;
 	List<GameObject> tbn;
 
 	void Awake(){
@@ -34,31 +34,35 @@ public class Conductor : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		songposition = ((float)(AudioSettings.dspTime)) - offset;
-
-		if (songposition > lastbeat + crochet){
-			lastbeat += crochet;
-			beatselapsed++;
-			for (int i = 0; i < tbn.Count; i++){
-				tbn[i].SendMessage("Beat");
+		songposition = (float)(AudioSettings.dspTime) - offset;
+		if (!gen) {
+			if (songposition > lastbeat + crochet){
+				lastbeat += crochet;
+				beatselapsed++;
+				for (int i = 0; i < tbn.Count; i++){
+					tbn[i].SendMessage("Beat");
+				}
+			}
+			if (songposition - start > lms.CurrentBeat.Start*crochet + delta) {
+				lms.PopNextBeat();
 			}
 		}
-		if (songposition - start > lms.CurrentBeat.Start*crochet + delta) {
-			lms.PopNextBeat();
-		}
+
 	}
 
 	//Checking if we are in the window of receiving input
 	void CanInput(KeyValuePair<GameObject,string> caller){
-		float cbt = lms.CurrentBeat.Start * crochet;
-		float ct = songposition - start + offset;
-		if (cbt - delta < ct && cbt + delta > ct){
-			caller.Key.SendMessage (caller.Value);
+		if (!gen) {
+			float cbt = lms.CurrentBeat.Start * crochet;
+			float ct = songposition - start;
+			if (cbt - delta < ct && cbt + delta > ct) {
+					caller.Key.SendMessage (caller.Value);
+			}
 		}
 	}
 
 	void KeyPressed(string key){
-
+		print (songposition);
 	}
 
 	void Register(GameObject tbr){
@@ -66,10 +70,6 @@ public class Conductor : MonoBehaviour {
 	}
 
 	void Test(){
-		print (songposition - lastbeat -offset +  " | " + (songposition - lastbeat - crochet - offset));
+		print (songposition - lastbeat);
 	}
-
-	void Special(){
-				print (beatselapsed);
-		}
 }
