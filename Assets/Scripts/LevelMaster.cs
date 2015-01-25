@@ -17,7 +17,7 @@ public class LevelMaster : MonoBehaviour {
 	// trap types
 
 	void Start(){
-		InitializeQueue (Application.dataPath + "/Levels/level1.txt");
+		InitializeQueue (Application.dataPath + "/Levels/pup.txt");
 	}
 
 	void Update(){

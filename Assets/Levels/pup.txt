@@ -1,7 +1,1 @@
-4 double
-10 double
-14 double
-30 restquick
-62 restquick
-125 rest
 500 sneak
