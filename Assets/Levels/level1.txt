@@ -65,8 +65,4 @@
 283 trap8
 290 trap4
 291 trap8
-<<<<<<< HEAD
 298 trap4
-=======
-298 trap4
->>>>>>> 56cc35b3d09830eb5dfb1100e293ffac85135507

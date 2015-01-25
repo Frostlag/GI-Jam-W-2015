@@ -13,7 +13,7 @@ public class Conductor : MonoBehaviour {
 	public float delta;
 	public float offset;
 	public GameObject levelMaster;
-	private LevelMaster lms;
+	public LevelMaster lms;
 
 	List<GameObject> tbn;
 
