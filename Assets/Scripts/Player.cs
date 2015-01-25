@@ -61,7 +61,13 @@ public class Player : MonoBehaviour {
 		}
 	}
 
+	public void setSpeed(float ratio){
+		gameObject.GetComponent<Animator> ().speed = runSpeed / ratio;
+	}
+	
 	void Beat(){
-		
+		//Beat nextBeat = (Beat)Conductor.instance.GetComponent<Conductor> ().lms.BeatQueue.Peek ();
+		Beat nextBeat = Conductor.instance.GetComponent<Conductor> ().lms.CurrentBeat;
+		setSpeed (nextBeat.Duration);
 	}
 }
