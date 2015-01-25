@@ -5,7 +5,6 @@ using System.Collections.Generic;
 public class Player : MonoBehaviour {
 
 	public static GameObject instance;
-	private float targetx;
 	public float speed;
 	public float distancemod;
 	public bool teleport;
@@ -16,7 +15,6 @@ public class Player : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Conductor.instance.SendMessage ("Register", gameObject);
-		targetx = this.transform.position.x;
 	}
 	
 	// Update is called once per frame

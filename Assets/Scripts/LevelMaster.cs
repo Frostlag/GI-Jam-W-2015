@@ -6,10 +6,11 @@ public class LevelMaster : MonoBehaviour {
 	// Properties
 	// current beat being referenced 
 	public Beat CurrentBeat;
-	public GameObject Floor = Resources.Load ("Floor") as GameObject;
+	public GameObject Background = Resources.Load ("Background") as GameObject;
 	public GameObject Trap = Resources.Load ("Trap") as GameObject;
 	public float speed ;
 	public int totalBeats = 500;
+	public int lives;
 
 	// Queue of beats to be poped onto Current Beat
 	public Queue BeatQueue; 
@@ -21,6 +22,10 @@ public class LevelMaster : MonoBehaviour {
 	}
 
 	void Update(){
+		if (lives == 0) {
+			//Conductor.instance.SendMessage("DIE");
+
+		}
 	}
 
 	// InitalizeQueue(string) -> bool
@@ -32,13 +37,18 @@ public class LevelMaster : MonoBehaviour {
 		// open file, read all lines and loop through them
 		BeatQueue = new Queue();
 		string[] lines = System.IO.File.ReadAllLines (@fileName);
-		GameObject floor = Instantiate (Floor) as GameObject;
-		floor.transform.position = new Vector3 (0, 0);
-		floor.transform.localScale = new Vector3 (speed * totalBeats, 2, 2);
+
+		for (int x = 0 ; x < 100; x ++){
+			GameObject Back= Instantiate (Background) as GameObject;
+			Vector3 temp =  Back.transform.position;
+			temp.x = (x*24);
+			Back.transform.position = temp;
+		}
 		float last = 0;
 		int id = 0;
 		foreach (string line in lines){
 			string[] row = line.Split(" "[0]);
+			id++;
 			while (last < float.Parse (row[0])){
 				Beat sneakBeat = new Beat();
 				sneakBeat.Start = last;
@@ -47,13 +57,13 @@ public class LevelMaster : MonoBehaviour {
 				sneakBeat.id = id;
 				sneakBeat.Duration = 1;
 				GameObject sneaktrap = Instantiate (Trap) as GameObject;
-				sneaktrap.transform.position = new Vector3(speed * sneakBeat.Start, 0); // start is a # of beats, beats * speed = distance
-				sneaktrap.transform.localScale = new Vector3 (0.51f, 50, 10);
+				DrawTrap(speed * sneakBeat.Start,Color.blue);
+
 				BeatQueue.Enqueue(sneakBeat);
 				last+=1;
 				id++;
 			}
-		
+
 			last += PlaceTrapCaller (row[1], float.Parse (row[0]),id);
 
 		}
@@ -72,14 +82,13 @@ public class LevelMaster : MonoBehaviour {
 			newBeat.Duration = length - startOffset;
 			newBeat.id = id;
 			GameObject sneaktrap = Instantiate (Trap) as GameObject;
-			sneaktrap.transform.position = new Vector3(start * speed + startOffset * speed, 0);
-			sneaktrap.transform.localScale = new Vector3(0.5f, 50, 10);
+
 			if (first) {
-				sneaktrap.renderer.material.SetColor("_Color", Color.red);
+				DrawTrap(speed * newBeat.Start, Color.green);
 				first = false;
 			}
 			else {
-				sneaktrap.renderer.material.SetColor("_Color", Color.green);
+				DrawTrap(speed * newBeat.Start, Color.red);
 			}
 			BeatQueue.Enqueue (newBeat);
 		}
@@ -102,13 +111,14 @@ public class LevelMaster : MonoBehaviour {
 		}else{
 			int id = CurrentBeat.id;
 			if (!CurrentBeat.Pass){
+				lives--;
 				//print (CurrentBeat.Duration);
 				print ("Fail");	
 				Player.instance.GetComponent<Animator>().SetBool ("Pass", false);
 				Player.instance.GetComponent<Player>().setSpeed(0.5f);
 				Player.instance.SendMessage("Move",CurrentBeat.Duration);
 				while (CurrentBeat.id == id){
-					CurrentBeat = (Beat) BeatQueue.Dequeue();
+					CurrentBeat = (Beat) BeatQueue.Dequeue();       
 				}
 			}
 			else{
@@ -144,7 +154,7 @@ public class LevelMaster : MonoBehaviour {
 		if (traptype == "trap7") {
 			last = PlaceTrap (new float[2] {0.0f, 1f/3f }, 1, beat,id);
 		}
-		if (traptype == "trap8" | traptype == "restquick") {
+		if (traptype == "trap8") {
 			last = PlaceTrap (new float[2] {0.0f, 0.75f}, 1, beat,id);
 		}
 		if (traptype == "trap9") {
@@ -153,7 +163,18 @@ public class LevelMaster : MonoBehaviour {
 		if (traptype == "rest") {
 			last = PlaceTrap (new float[2] {0.0f, 2.0f}, 2, beat,id);
 		}
-		return last;
+		if (traptype == "rest") {
+			last = PlaceTrap (new float[2] {0.0f, 2.0f}, 2, beat,id);
+		}
+	return last;
+	}
+
+	private void DrawTrap( float pos, Color color){
+
+		GameObject newbeat = Instantiate (Trap) as GameObject;
+		newbeat.transform.position = new Vector3 (pos, -2);
+		newbeat.transform.localScale = new Vector3(0.5f, 5, 10);
+		newbeat.renderer.material.SetColor ("_Color", color);
 	}
 }
 
