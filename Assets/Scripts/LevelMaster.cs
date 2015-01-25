@@ -55,8 +55,32 @@ public class LevelMaster : MonoBehaviour {
 				last+=1;
 				id++;
 			}
-			if (row[1] == "type1") {
-				last += PlaceTrap (new float[6] {0.25f, 0.25f, 0.25f, 0.25f, 0.25f, 0.25f}, 2, float.Parse (row[0]),id);
+			if (row[1] == "trap1") {
+				last += PlaceTrap (new float[2] {0.0f, 0.5f}, 1, float.Parse (row[0]),id);
+			}
+			if (row[1] == "trap2") {
+				last += PlaceTrap (new float[3] {0.0f, 0.5f, 0.25f}, 1, float.Parse (row[0]),id);
+			}
+			if (row[1] == "trap3") {
+				last += PlaceTrap (new float[3] {0.0f, 0.25f, 0.5f}, 1, float.Parse (row[0]),id);
+			}
+			if (row[1] == "trap4") {
+				last += PlaceTrap (new float[3] {0.0f, 0.25f, 0.25f}, 1, float.Parse (row[0]),id);
+			}
+			if (row[1] == "trap5") {
+				last += PlaceTrap (new float[3] {0.0f, 1f/3f, 1f/3f}, 1, float.Parse (row[0]),id);
+			}
+			if (row[1] == "trap6") {
+				last += PlaceTrap (new float[2] {0.0f, 4f/6f}, 1, float.Parse (row[0]),id);
+			}
+			if (row[1] == "trap7") {
+				last += PlaceTrap (new float[2] {0.0f, 1f/3f }, 1, float.Parse (row[0]),id);
+			}
+			if (row[1] == "trap8") {
+				last += PlaceTrap (new float[2] {0.0f, 0.75f}, 1, float.Parse (row[0]),id);
+			}
+			if (row[1] == "trap9") {
+				last += PlaceTrap (new float[2] {0.0f, 0.25f}, 1, float.Parse (row[0]),id);
 			}
 		}
 		PopNextBeat();
