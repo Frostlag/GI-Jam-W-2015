@@ -7,6 +7,7 @@ public class Player : MonoBehaviour {
 	public static GameObject instance;
 	private float targetx;
 	public float speed;
+	public float distancemod;
 
 	void Awake(){
 		Player.instance = gameObject;
@@ -36,18 +37,14 @@ public class Player : MonoBehaviour {
 
 	void handleControls(){
 		if (Input.GetKeyDown ("space")) {
-			targetx += 1;
-			Vector3 temp = this.rigidbody2D.velocity;
-			temp.x = speed;
-			this.rigidbody2D.velocity = temp;
 			Conductor.instance.SendMessage ("KeyPressed", "space");
 		}
 	}
 
-	void Kick(){
-		targetx += 1;
+	void Move(float distance){
+		targetx += distance*distancemod;
 		Vector3 temp = this.rigidbody2D.velocity;
-		temp.x = speed;
+		temp.x = distance * speed;
 		this.rigidbody2D.velocity = temp;
 	}
 
