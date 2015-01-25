@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 6bd18c5f23738b64ea5f5ec151433a9f
+guid: 0fdd8a3e9172e5c44b6b42d95dcc17e6
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Walk Cycle Sprite Sheet_0
-    21300002: Walk Cycle Sprite Sheet_1
-    21300004: Walk Cycle Sprite Sheet_2
-    21300006: Walk Cycle Sprite Sheet_3
-    21300008: Walk Cycle Sprite Sheet_4
-    21300010: Walk Cycle Sprite Sheet_5
-    21300012: Walk Cycle Sprite Sheet_6
-    21300014: Walk Cycle Sprite Sheet_7
-    21300016: Walk Cycle Sprite Sheet_8
-    21300018: Walk Cycle Sprite Sheet_9
-    21300020: Walk Cycle Sprite Sheet_10
-    21300022: Walk Cycle Sprite Sheet_11
+    21300000: Trip Cycle 2 Spritesheet_0
+    21300002: Trip Cycle 2 Spritesheet_1
+    21300004: Trip Cycle 2 Spritesheet_2
+    21300006: Trip Cycle 2 Spritesheet_3
+    21300008: Trip Cycle 2 Spritesheet_4
+    21300010: Trip Cycle 2 Spritesheet_5
+    21300012: Trip Cycle 2 Spritesheet_6
+    21300014: Trip Cycle 2 Spritesheet_7
+    21300016: Trip Cycle 2 Spritesheet_8
+    21300018: Trip Cycle 2 Spritesheet_9
+    21300020: Trip Cycle 2 Spritesheet_10
+    21300022: Trip Cycle 2 Spritesheet_11
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -55,122 +55,122 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: Walk Cycle Sprite Sheet_0
+    - name: Trip Cycle 2 Spritesheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 704
-        width: 64
+        width: 128
         height: 64
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Walk Cycle Sprite Sheet_1
+    - name: Trip Cycle 2 Spritesheet_1
       rect:
         serializedVersion: 2
         x: 0
         y: 640
-        width: 64
+        width: 128
         height: 64
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Walk Cycle Sprite Sheet_2
+    - name: Trip Cycle 2 Spritesheet_2
       rect:
         serializedVersion: 2
         x: 0
         y: 576
-        width: 64
+        width: 128
         height: 64
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Walk Cycle Sprite Sheet_3
+    - name: Trip Cycle 2 Spritesheet_3
       rect:
         serializedVersion: 2
         x: 0
         y: 512
-        width: 64
+        width: 128
         height: 64
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Walk Cycle Sprite Sheet_4
+    - name: Trip Cycle 2 Spritesheet_4
       rect:
         serializedVersion: 2
         x: 0
         y: 448
-        width: 64
+        width: 128
         height: 64
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Walk Cycle Sprite Sheet_5
+    - name: Trip Cycle 2 Spritesheet_5
       rect:
         serializedVersion: 2
         x: 0
         y: 384
-        width: 64
+        width: 128
         height: 64
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Walk Cycle Sprite Sheet_6
+    - name: Trip Cycle 2 Spritesheet_6
       rect:
         serializedVersion: 2
         x: 0
         y: 320
-        width: 64
+        width: 128
         height: 64
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Walk Cycle Sprite Sheet_7
+    - name: Trip Cycle 2 Spritesheet_7
       rect:
         serializedVersion: 2
         x: 0
         y: 256
-        width: 64
+        width: 128
         height: 64
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Walk Cycle Sprite Sheet_8
+    - name: Trip Cycle 2 Spritesheet_8
       rect:
         serializedVersion: 2
         x: 0
         y: 192
-        width: 64
+        width: 128
         height: 64
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Walk Cycle Sprite Sheet_9
+    - name: Trip Cycle 2 Spritesheet_9
       rect:
         serializedVersion: 2
         x: 0
         y: 128
-        width: 64
+        width: 128
         height: 64
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Walk Cycle Sprite Sheet_10
+    - name: Trip Cycle 2 Spritesheet_10
       rect:
         serializedVersion: 2
         x: 0
         y: 64
-        width: 64
+        width: 128
         height: 64
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Walk Cycle Sprite Sheet_11
+    - name: Trip Cycle 2 Spritesheet_11
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
+        width: 128
         height: 64
       alignment: 6
       pivot: {x: 0, y: 0}

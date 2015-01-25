@@ -1,11 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Player.cs">
     <Files>
-      <File FileName="Assets\Scripts\Player.cs" Line="48" Column="4" />
-      <File FileName="Assets\Scripts\Conductor.cs" Line="46" Column="58" />
-      <File FileName="Assets\Scripts\LevelMaster.cs" Line="108" Column="1" />
-      <File FileName="Assets\Levels\level1.txt" Line="67" Column="10" />
+      <File FileName="Assets\Scripts\Player.cs" Line="67" Column="2" />
+      <File FileName="Assets\Scripts\Conductor.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\LevelMaster.cs" Line="1" Column="1" />
+      <File FileName="Assets\Levels\level1.txt" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

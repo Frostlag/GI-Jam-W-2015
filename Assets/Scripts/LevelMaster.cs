@@ -106,6 +106,8 @@ public class LevelMaster : MonoBehaviour {
 			if (!CurrentBeat.Pass){
 				//print (CurrentBeat.Duration);
 				print ("Fail");	
+				Player.instance.GetComponent<Animator>().SetBool ("Pass", false);
+				Player.instance.GetComponent<Player>().setSpeed(0.5f);
 				Player.instance.SendMessage("Move",CurrentBeat.Duration);
 				while (CurrentBeat.id == id){
 					CurrentBeat = (Beat) BeatQueue.Dequeue();
@@ -114,7 +116,7 @@ public class LevelMaster : MonoBehaviour {
 			}
 			else{
 				float laststart = CurrentBeat.Start;
-
+				Player.instance.GetComponent<Animator>().SetBool ("Pass", true);
 				CurrentBeat = (Beat) BeatQueue.Dequeue();
 				Player.instance.SendMessage("Move",CurrentBeat.Start - laststart);
 			}
