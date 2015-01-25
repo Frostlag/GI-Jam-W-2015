@@ -72,4 +72,8 @@ public class Conductor : MonoBehaviour {
 	void Special(){
 		print (beatselapsed);
 	}
+
+	void DIE(){
+		audio.Stop ();
+	}
 }
