@@ -17,7 +17,7 @@ public class LevelMaster : MonoBehaviour {
 	// trap types
 
 	void Start(){
-		InitializeQueue (Application.dataPath + "/Levels/pup.txt");
+		InitializeQueue (Application.dataPath + "/Levels/level1.txt");
 	}
 
 	void Update(){
@@ -50,7 +50,7 @@ public class LevelMaster : MonoBehaviour {
 				sneakBeat.Duration = 1;
 				GameObject sneaktrap = Instantiate (Trap) as GameObject;
 				sneaktrap.transform.position = new Vector3(speed * sneakBeat.Start, 0); // start is a # of beats, beats * speed = distance
-				sneaktrap.transform.localScale = new Vector3 (1, 50, 50);
+				sneaktrap.transform.localScale = new Vector3 (0.51f, 50, 10);
 				BeatQueue.Enqueue(sneakBeat);
 				last+=1;
 				id++;
@@ -64,6 +64,7 @@ public class LevelMaster : MonoBehaviour {
 	}
 	private int PlaceTrap(float[] BeatList, int length,float start, int id){
 		float startOffset = 0;
+		bool first = true;
 		foreach (float i in BeatList) {
 			Beat newBeat = new Beat();
 			startOffset += i;
@@ -74,7 +75,14 @@ public class LevelMaster : MonoBehaviour {
 			newBeat.id = id;
 			GameObject sneaktrap = Instantiate (Trap) as GameObject;
 			sneaktrap.transform.position = new Vector3(start * speed + startOffset * speed, 0);
-			sneaktrap.transform.localScale = new Vector3(1, 50, 50);
+			sneaktrap.transform.localScale = new Vector3(0.5f, 50, 10);
+			if (first) {
+				sneaktrap.renderer.material.SetColor("_Color", Color.red);
+				first = false;
+			}
+			else {
+				sneaktrap.renderer.material.SetColor("_Color", Color.green);
+			}
 			BeatQueue.Enqueue (newBeat);
 		}
 		return length;
@@ -98,6 +106,8 @@ public class LevelMaster : MonoBehaviour {
 			if (!CurrentBeat.Pass){
 				//print (CurrentBeat.Duration);
 				print ("Fail");	
+				Player.instance.GetComponent<Animator>().SetBool ("Pass", false);
+				Player.instance.GetComponent<Player>().setSpeed(0.5f);
 				Player.instance.SendMessage("Move",CurrentBeat.Duration);
 				while (CurrentBeat.id == id){
 					CurrentBeat = (Beat) BeatQueue.Dequeue();
@@ -106,7 +116,7 @@ public class LevelMaster : MonoBehaviour {
 			}
 			else{
 				float laststart = CurrentBeat.Start;
-
+				Player.instance.GetComponent<Animator>().SetBool ("Pass", true);
 				CurrentBeat = (Beat) BeatQueue.Dequeue();
 				Player.instance.SendMessage("Move",CurrentBeat.Start - laststart);
 			}

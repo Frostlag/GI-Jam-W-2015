@@ -7,6 +7,7 @@ public class Player : MonoBehaviour {
 	public static GameObject instance;
 	private float targetx;
 	public float speed;
+	public float runSpeed;
 	public float distancemod;
 
 	void Awake(){
@@ -16,6 +17,8 @@ public class Player : MonoBehaviour {
 	void Start () {
 		Conductor.instance.SendMessage ("Register", gameObject);
 		targetx = this.transform.position.x;
+		runSpeed = Conductor.instance.GetComponent<Conductor> ().bpm / 120;
+		gameObject.GetComponent<Animator> ().speed = speed;
 	}
 	
 	// Update is called once per frame
@@ -28,9 +31,7 @@ public class Player : MonoBehaviour {
 		if (Input.GetKeyDown ("t")) {
 			Conductor.instance.SendMessage ("Test", "space");
 		}
-		if (Input.GetKeyDown ("s")) {
-			Conductor.instance.SendMessage ("Special", "space");
-		}
+		
 		// See if we are in window to input
 		KeyValuePair<GameObject,string> parameter = new KeyValuePair<GameObject,string> (gameObject, "handleControls");
 		Conductor.instance.SendMessage ("CanInput", parameter);
@@ -38,7 +39,7 @@ public class Player : MonoBehaviour {
 	}
 
 	void handleControls(){
-		if (Input.GetKeyDown ("space") ) {
+		if (Input.GetKeyDown ("space")) {
 			Conductor.instance.SendMessage ("KeyPressed", "space");
 		}
 	}
@@ -47,14 +48,20 @@ public class Player : MonoBehaviour {
 		Vector3 temp = this.transform.position;
 		temp.x += distance;
 		this.transform.position = temp;
-		/*
-		targetx += distance*distancemod;
-		Vector3 temp = this.rigidbody2D.velocity;
-		temp.x = distance * speed;
-		this.rigidbody2D.velocity = temp;*/
+
+//		targetx += distance*distancemod;
+//		Vector3 temp = this.rigidbody2D.velocity;
+//		temp.x = distance * speed;
+//		this.rigidbody2D.velocity = temp;
+	}
+
+	public void setSpeed(float ratio){
+		gameObject.GetComponent<Animator> ().speed = runSpeed / ratio;
 	}
 
 	void Beat(){
-		
+		//Beat nextBeat = (Beat)Conductor.instance.GetComponent<Conductor> ().lms.BeatQueue.Peek ();
+		Beat nextBeat = Conductor.instance.GetComponent<Conductor> ().lms.CurrentBeat;
+		setSpeed (nextBeat.Duration);
 	}
 }
