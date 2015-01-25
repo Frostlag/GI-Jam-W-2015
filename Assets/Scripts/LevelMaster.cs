@@ -8,7 +8,7 @@ public class LevelMaster : MonoBehaviour {
 	public Beat CurrentBeat;
 	public GameObject Floor = Resources.Load ("Floor") as GameObject;
 	public GameObject Trap = Resources.Load ("Trap") as GameObject;
-	public int speed = 1;
+	public float speed ;
 	public int totalBeats = 500;
 
 	// Queue of beats to be poped onto Current Beat
@@ -35,7 +35,7 @@ public class LevelMaster : MonoBehaviour {
 		GameObject floor = Instantiate (Floor) as GameObject;
 		floor.transform.position = new Vector3 (0, 0);
 		floor.transform.localScale = new Vector3 (speed * totalBeats, 2, 2);
-		float last = 1;
+		float last = 0;
 		int id = 0;
 		foreach (string line in lines){
 			string[] row = line.Split(" "[0]);
@@ -50,7 +50,7 @@ public class LevelMaster : MonoBehaviour {
 				sneakBeat.Duration = 1;
 				GameObject sneaktrap = Instantiate (Trap) as GameObject;
 				sneaktrap.transform.position = new Vector3(speed * sneakBeat.Start, 0); // start is a # of beats, beats * speed = distance
-				sneaktrap.transform.localScale = new Vector3 (2, 50, 50);
+				sneaktrap.transform.localScale = new Vector3 (1, 50, 50);
 				BeatQueue.Enqueue(sneakBeat);
 				last+=1;
 				id++;
@@ -88,19 +88,17 @@ public class LevelMaster : MonoBehaviour {
 	}
 	private int PlaceTrap(float[] BeatList, int length,float start, int id){
 		float startOffset = 0;
-		float duration = length;
 		foreach (float i in BeatList) {
 			Beat newBeat = new Beat();
 			startOffset += i;
 			newBeat.Start = start * speed + startOffset * speed;
 			newBeat.Type = "sneak";
 			newBeat.Pass = false;
-			newBeat.Duration = duration;
+			newBeat.Duration = length - startOffset;
 			newBeat.id = id;
-			duration -= i;
 			GameObject sneaktrap = Instantiate (Trap) as GameObject;
 			sneaktrap.transform.position = new Vector3(start * speed + startOffset * speed, 0);
-			sneaktrap.transform.localScale = new Vector3(2, 50, 50);
+			sneaktrap.transform.localScale = new Vector3(1, 50, 50);
 			BeatQueue.Enqueue (newBeat);
 		}
 		return length;
@@ -119,14 +117,16 @@ public class LevelMaster : MonoBehaviour {
 	public void PopNextBeat() {
 		if (CurrentBeat == null){
 			CurrentBeat = (Beat) BeatQueue.Dequeue();
+			print (CurrentBeat.Start);
 		}else{
 			int id = CurrentBeat.id;
 			if (!CurrentBeat.Pass){
-				print ("fail");
+				print (CurrentBeat.Duration);
 				Player.instance.SendMessage("Move",CurrentBeat.Duration);
 				while (CurrentBeat.id == id){
 					CurrentBeat = (Beat) BeatQueue.Dequeue();
 				}
+
 			}
 			else{
 				float laststart = CurrentBeat.Start;
