@@ -36,7 +36,7 @@ public class Player : MonoBehaviour {
 	}
 
 	void handleControls(){
-		if (Input.GetKeyDown ("space")) {
+		if (Input.GetKeyDown ("space") ) {
 			Conductor.instance.SendMessage ("KeyPressed", "space");
 		}
 	}

@@ -50,6 +50,8 @@
      <Compile Include="Assets\Scripts\LevelMaster.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <None Include="Assets\Levels\level1.txt" />
+     <None Include="Assets\Levels\pup.txt" />
+     <None Include="Assets\Levels\level0.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
  </Reference>
