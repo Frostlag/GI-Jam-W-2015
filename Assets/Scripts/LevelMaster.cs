@@ -8,6 +8,7 @@ public class LevelMaster : MonoBehaviour {
 	public Beat CurrentBeat;
 	public GameObject Background = Resources.Load ("Background") as GameObject;
 	public GameObject Trap = Resources.Load ("Trap") as GameObject;
+	public GameObject Laser = Resources.Load ("Laser") as GameObject;
 	public float speed ;
 	public int totalBeats = 500;
 	public int lives;
@@ -18,7 +19,7 @@ public class LevelMaster : MonoBehaviour {
 	// trap types
 
 	void Start(){
-		InitializeQueue (Application.dataPath + "/Levels/pup.txt");
+		InitializeQueue (Application.dataPath + "/Levels/level1.txt");
 	}
 
 	void Update(){

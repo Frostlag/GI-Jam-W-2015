@@ -4,9 +4,8 @@
 22 double
 31 trap9
 44 double
-49 double
-53 double
-59 double
+51 double
+58 double
 63 trap9
 125 rest
 500 sneak

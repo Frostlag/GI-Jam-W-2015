@@ -66,7 +66,7 @@ public class Conductor : MonoBehaviour {
 	}
 
 	void Test(){
-		print (songposition - lastbeat -offset +  " | " + (songposition - lastbeat - crochet - offset));
+		print (songposition - lastbeat + offset +  " | " + (songposition - lastbeat - crochet + offset));
 	}
 
 	void Special(){
